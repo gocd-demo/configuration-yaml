@@ -17,12 +17,12 @@ pipelines:
                 - exec:
                     command: mvn
                     arguments:
-                      - clean
+                     - clean
                 - exec:
                     command: mvn
                     arguments:
-                      - compile
-                      - -DskipTests
+                     - compile
+                     - -DskipTests
     - test:
         jobs:
           unit_test:
@@ -30,5 +30,5 @@ pipelines:
             tasks:
               - exec:
                   command: mvn
-                    - clean
-                    - test
+                   - clean
+                   - test
