@@ -3,6 +3,11 @@ format_version: 2
 
 pipelines:
   testing_yaml_001:
+    group: Development
+    materials:
+      appGit:
+        git: https://github.com/gocd-demo/jy_main_repo.git
+        branch: master
     stages:
       - build:
           jobs:
