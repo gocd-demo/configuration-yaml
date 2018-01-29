@@ -2,7 +2,7 @@
 format_version: 2
 
 pipelines:
-  testing_yaml_001:
+  yaml_build_test:
     group: KenTest
     materials:
       appGit:
@@ -33,3 +33,29 @@ pipelines:
                     arguments:
                      - clean
                      - test
+
+  yaml_installer:
+    group: KenTest
+    materials:
+      appGit:
+        git: https://github.com/gocd-demo/jy_main_repo.git
+        branch: master
+      buildPipe:
+        pipeline: yaml_build_test
+        stage: test
+    stages:
+      - package:
+          jobs:
+            package:
+              elastic_profile_id: "docker-maven"
+              tasks:
+                - exec:
+                    command: mvn
+                    arguments:
+                     - clean
+                     - package
+                     - -DskipTests
+            artifacts:
+              - build:
+                  source: target/*.jar
+                  destination: dist/
