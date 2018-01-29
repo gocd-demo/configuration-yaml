@@ -11,8 +11,8 @@ pipelines:
     stages:
       - build:
           jobs:
-            elastic_profile_id: "docker-maven"
             build:
+              elastic_profile_id: "docker-maven"
               tasks:
                 - exec:
                     command: ls
