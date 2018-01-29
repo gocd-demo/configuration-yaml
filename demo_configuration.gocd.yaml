@@ -23,12 +23,13 @@ pipelines:
                     arguments:
                      - compile
                      - -DskipTests
-    - test:
-        jobs:
-          unit_test:
-            elastic_profile_id: "docker-maven"
-            tasks:
-              - exec:
-                  command: mvn
-                   - clean
-                   - test
+      - test:
+          jobs:
+            unit_test:
+              elastic_profile_id: "docker-maven"
+              tasks:
+                - exec:
+                    command: mvn
+                    arguments:
+                     - clean
+                     - test
