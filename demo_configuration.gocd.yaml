@@ -1,2 +1,14 @@
 #ci.gocd.yaml
 format_version: 2
+
+pipelines:
+  testing_yaml_001:
+    stages:
+      - build:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                  command: ls
+                  arguments:
+                    - "-l"
